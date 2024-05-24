@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="/Neq.Design.WPF;component/Resources/NeqResources.xaml"/>
+        
+        <ResourceDictionary Source="/Neq.Design.WPF;component/Controls/Buttons/NeqButtons.xaml"/>
+        <ResourceDictionary Source="/Neq.Design.WPF;component/Controls/ToggleButtons/NeqToggleButtons.xaml"/>
+        <ResourceDictionary Source="/Neq.Design.WPF;component/Controls/TextBoxes/NeqTextBox.xaml"/>
+        <ResourceDictionary Source="/Neq.Design.WPF;component/Controls/Menus/NeqMenus.xaml"/>
+        <ResourceDictionary Source="/Neq.Design.WPF;component/Controls/ScrollBars/NeqScrollBar.xaml"/>
+        <ResourceDictionary Source="/Neq.Design.WPF;component/Controls/RadioButtons/NeqRadioButtons.xaml"/>
+        <ResourceDictionary Source="/Neq.Design.WPF;component/Controls/CheckBoxes/NeqCheckBox.xaml"/>
+        <ResourceDictionary Source="/Neq.Design.WPF;component/Controls/ComboBoxes/NeqComboBox.xaml"/>
+        <ResourceDictionary Source="/Neq.Design.WPF;component/Controls/ToolTips/NeqToolTip.xaml"/>
+        <ResourceDictionary Source="/Neq.Design.WPF;component/Controls/Sliders/NeqSlider.xaml"/>
+
+
+    </ResourceDictionary.MergedDictionaries>
+
+   
+
+</ResourceDictionary>

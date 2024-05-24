@@ -1,0 +1,41 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:Boolean x:Key="IsTheme">True</system:Boolean>
+    <system:String x:Key="ThemeName">Light Theme</system:String>
+
+    <SolidColorBrush x:Key="ForegroundPrimary" Color="#000000"/>
+    <SolidColorBrush x:Key="ForegroundSecondary" Color="#555D66"/>
+    <SolidColorBrush x:Key="ForegroundDisabled" Color="#9099AC"/>
+
+    <SolidColorBrush x:Key="BackgroundPrimary" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="BackgroundSecondary" Color="#F6F8FA"/>
+    <SolidColorBrush x:Key="BackgroundStroke" Color="#EAEDF1"/>
+
+    <SolidColorBrush x:Key="Accent" Color="#93C5FD"/>
+    <SolidColorBrush x:Key="AccentHover" Color="#60A5FA"/>
+    <SolidColorBrush x:Key="AccentDisabled" Color="#BFDBFE"/>
+
+    <SolidColorBrush x:Key="ControlBackground" Color="#F6F8FA"/>
+    <SolidColorBrush x:Key="ControlBackgroundHover" Color="#EAEDF1"/>
+    <SolidColorBrush x:Key="ControlBackgroundDisabled" Color="#F6F8FA"/>
+
+    <SolidColorBrush x:Key="DestructiveBackground" Color="#F26955"/>
+    <SolidColorBrush x:Key="DestructiveForeground" Color="#3B2629"/>
+    <SolidColorBrush x:Key="DestructiveHover" Color="#E25945"/>
+    <SolidColorBrush x:Key="DestructiveBackgroundDisabled" Color="#F86E5B"/>
+    <SolidColorBrush x:Key="DestructiveForegroundDisabled" Color="#E25945"/>
+
+    <SolidColorBrush x:Key="ScrollBarForeground" Color="#56556E"/>
+    <SolidColorBrush x:Key="ScrollBarBackground" Color="#2456556E"/>
+
+    <SolidColorBrush x:Key="TextBoxSelection" Color="#24456DFC"/>
+
+    <SolidColorBrush x:Key="TransparentBackgroundDark" Color="#CACACC"/>
+    <SolidColorBrush x:Key="TransparentBackgroundLight" Color="#FDFDFD"/>
+
+    <CornerRadius x:Key="CornerRadius">6</CornerRadius>
+
+
+</ResourceDictionary>

@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:neq="clr-namespace:Neq.Design.WPF.Controls">
+
+    <DrawingImage x:Key="ChromeCloseIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V24 H24 V0 H0 Z">
+                <GeometryDrawing Brush="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type neq:NeqButton}}, Path=Foreground}" Geometry="F1 M24,24z M0,0z M13.46,12L19,17.54 19,19 17.54,19 12,13.46 6.46,19 5,19 5,17.54 10.54,12 5,6.46 5,5 6.46,5 12,10.54 17.54,5 19,5 19,6.46 13.46,12z" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="ChromeMaximizeIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V24 H24 V0 H0 Z">
+                <GeometryDrawing Brush="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type neq:NeqButton}}, Path=Foreground}" Geometry="F1 M24,24z M0,0z M3,5.75C3,4.23122,4.23122,3,5.75,3L18.25,3C19.7688,3,21,4.23122,21,5.75L21,18.25C21,19.7688,19.7688,21,18.25,21L5.75,21C4.23122,21,3,19.7688,3,18.25z M5.75,4.5C5.05964,4.5,4.5,5.05964,4.5,5.75L4.5,18.25C4.5,18.9404,5.05964,19.5,5.75,19.5L18.25,19.5C18.9404,19.5,19.5,18.9404,19.5,18.25L19.5,5.75C19.5,5.05964,18.9404,4.5,18.25,4.5z" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    <DrawingImage x:Key="ChromeMinimizeIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V15 H15 V0 H0 Z">
+                <GeometryDrawing Brush="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type neq:NeqButton}}, Path=Foreground}" Geometry="F0 M15,15z M0,0z M1.25,7.5C1.25,7.22386,1.47386,7,1.75,7L13.25,7C13.5261,7 13.75,7.22386 13.75,7.5 13.75,7.77614 13.5261,8 13.25,8L1.75,8C1.47386,8,1.25,7.77614,1.25,7.5z" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+
+    
+
+</ResourceDictionary>

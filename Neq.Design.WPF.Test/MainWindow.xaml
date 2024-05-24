@@ -1,0 +1,581 @@
+﻿<Window x:Class="Neq.Design.WPF.Test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Neq.Design.WPF.Test" 
+        xmlns:neq="clr-namespace:Neq.Design.WPF.Controls;assembly=Neq.Design.WPF" 
+        xmlns:ext="clr-namespace:Neq.Design.WPF.Controls.Extended;assembly=Neq.Design.WPF" 
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1000" Width="1000" FontSize="16" WindowStyle="None">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" 
+                      CornerRadius="{DynamicResource CornerRadius}" 
+                      CaptionHeight="24" 
+                      UseAeroCaptionButtons="False" 
+                      ResizeBorderThickness="2"/>
+    </WindowChrome.WindowChrome>
+
+
+    <Grid Background="{DynamicResource BackgroundPrimary}" SnapsToDevicePixels="False">
+
+      
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="1"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top">
+
+            <!--<neq:NeqMenuItem 
+                             Header="sdasdasf" IsEnabled="True">
+
+                <neq:NeqMenuItem  Header="submenu item"/>
+                <neq:NeqMenuItem  Header="submenu item"/>
+                <neq:NeqMenuItem  Header="submenu item"/>
+                <neq:NeqMenuItem  Header="submenu item"/>
+
+            </neq:NeqMenuItem>-->
+
+        </Menu>
+
+        <Border HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Background="{DynamicResource ControlBackground}">
+
+            <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Right"
+                    WindowChrome.IsHitTestVisibleInChrome="True">
+
+                <neq:NeqButton Style="{StaticResource NeqChromeButton}"
+                           Width="32"
+                           Padding="4"
+                           Icon="{StaticResource ChromeMinimizeIcon}"
+                           IconMargin="0"
+                           VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Center"/>
+
+                <neq:NeqButton Style="{StaticResource NeqChromeButton}"
+                           Width="32"
+                           Padding="4"
+                           Icon="{StaticResource ChromeMaximizeIcon}"
+                           IconMargin="0"
+                           VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Center"/>
+
+                <neq:NeqButton Style="{StaticResource NeqChromeCloseButton}"
+                           Width="32"
+                           Padding="3"
+                           Icon="{StaticResource ChromeCloseIcon}"
+                           IconMargin="0"
+                           VerticalContentAlignment="Center"
+                           HorizontalContentAlignment="Center"/>
+
+            </StackPanel>
+
+        </Border>
+        
+       
+
+        <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                      VerticalScrollBarVisibility="Visible"
+                      Grid.Row="1">
+
+            <StackPanel Orientation="Vertical"
+                        Margin="20">
+
+                <ext:NeqHSLColorPicker FontSize="14"
+                                       SelectedColor="Aqua"
+                                       Margin="20"
+                                       x:Name="ss"/>
+
+               
+
+                <TextBlock Text="Check Box"
+                           Foreground="{DynamicResource ForegroundPrimary}"
+                           Margin="0 20 0 0"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+
+                    <neq:NeqCheckBox Style="{StaticResource NeqCheckBox}"
+                              Content="Светлая тема"
+                              x:Name="check"
+                              
+                              HorizontalAlignment="Left"/>
+
+                    <StackPanel Orientation="Vertical"
+                                Margin="20 0 0 0">
+
+                        <TextBlock Text="Corner radius"
+                                   FontSize="14"
+                           Foreground="{DynamicResource ForegroundPrimary}"/>
+
+                        <neq:NeqSlider Style="{StaticResource NeqSlider}"
+                                Margin="0 4 0 0"
+                                Maximum="50"
+                                TickPlacement="TopLeft"
+                                IsSnapToTickEnabled="True"
+                                Minimum="0"
+                                x:Name="sliderCornerRadius"
+                                Width="200"/>
+
+
+                    </StackPanel>
+                    
+                  
+
+                </StackPanel>
+
+                <TextBlock Text="Check Box"
+                           Foreground="{DynamicResource ForegroundPrimary}"
+                           Margin="0 20 0 0"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+
+                    <neq:NeqCheckBox Style="{StaticResource NeqCheckBox}"
+                          Content="Disabled"
+                          IsEnabled="False"
+                          HorizontalAlignment="Left"/>
+
+                    <neq:NeqCheckBox Style="{StaticResource NeqCheckBox}"
+                              Content="Check box with tooltip"
+                              Margin="10 0 0 0"
+                              HorizontalAlignment="Left">
+
+                        <neq:NeqCheckBox.ToolTip>
+
+                            <neq:NeqToolTip Content="ToolTip" Style="{StaticResource NeqToolTip}"/>
+                            
+                        </neq:NeqCheckBox.ToolTip>
+                        
+                    </neq:NeqCheckBox>
+
+
+                </StackPanel>
+
+              
+
+                <TextBlock Text="Radio Buttons"
+                           Foreground="{DynamicResource ForegroundPrimary}"
+                           Margin="0 20 0 0"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                    <neq:NeqRadioButton
+                        Style="{StaticResource NeqRadioButton}"
+                        Content="Disabled"
+                        IsEnabled="False"
+                        HorizontalAlignment="Center"/>
+
+                    <neq:NeqRadioButton
+                        Style="{StaticResource NeqRadioButton}"
+                        Content="Radio button"
+                        Margin="10 0 0 0"
+                        HorizontalAlignment="Center"/>
+
+                    <neq:NeqRadioButton
+                        Style="{StaticResource NeqDestructiveRadioButton}"
+                        Content="Disabled destructive"
+                        IsEnabled="False"
+                        Margin="10 0 0 0"
+                        HorizontalAlignment="Center"/>
+
+                    <neq:NeqRadioButton
+                        Style="{StaticResource NeqDestructiveRadioButton}"
+                        Content="Destructive button"
+                        IsEnabled="True"
+                        Margin="10 0 0 0"
+                        HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+                <TextBlock Text="Toggle Buttons"
+                           Foreground="{DynamicResource ForegroundPrimary}"
+                           Margin="0 20 0 0"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                    <neq:NeqToggleButton
+                        Style="{StaticResource NeqToggleButton}"
+                        Content="Disabled"
+                        IsEnabled="False"
+                        HorizontalAlignment="Center"/>
+
+                    <neq:NeqToggleButton
+                        Style="{StaticResource NeqToggleButton}"
+                        Content="Toggle button"
+                        Margin="10 0 0 0"
+                        HorizontalAlignment="Center"/>
+
+                    <neq:NeqToggleButton
+                        Style="{StaticResource NeqDestructiveToggleButton}"
+                        Content="Disabled destructive"
+                        IsEnabled="False"
+                        Margin="10 0 0 0"
+                        HorizontalAlignment="Center"/>
+
+                    <neq:NeqToggleButton
+                        Style="{StaticResource NeqDestructiveToggleButton}"
+                        Content="Destructive button"
+                        Margin="10 0 0 0"
+                        HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+                <TextBlock Text="Buttons"
+                           Foreground="{DynamicResource ForegroundPrimary}"
+                           Margin="0 20 0 0"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+
+                    <StackPanel Orientation="Vertical">
+
+                        <neq:NeqButton  Style="{StaticResource NeqAccentButton}"
+                                        Content="First button"
+                                        HorizontalAlignment="Center"/>
+
+                        <neq:NeqButton Style="{StaticResource NeqAccentButton}"
+                                       Content="Disabled"
+                                       Margin="0 10 0 0"
+                                       IsEnabled="False"
+                                       HorizontalAlignment="Center"/>  
+                    </StackPanel>
+
+
+                    <StackPanel Margin="10 0 0 0">
+
+                        <neq:NeqButton Style="{StaticResource NeqButton}"
+                                       Content="First button"
+                                       HorizontalAlignment="Center"/>
+
+                        <neq:NeqButton Style="{StaticResource NeqButton}"
+                                       Content="Disabled"
+                                       IsEnabled="False"
+                                       Margin="0 10 0 0"
+                                       HorizontalAlignment="Center"/>
+
+                    </StackPanel>
+
+                    <StackPanel Margin="10 0 0 0">
+
+
+                        <neq:NeqButton Style="{StaticResource NeqDestructiveButton}"
+                                       Content="First button"
+                                       HorizontalAlignment="Center"/>
+
+                        <neq:NeqButton Style="{StaticResource NeqDestructiveButton}"
+                                       Content="Disabled"
+                                       IsEnabled="False"
+                                       Margin="0 10 0 0"
+                                       HorizontalAlignment="Center"/>
+
+
+                    </StackPanel>
+
+                    <StackPanel Margin="10 0 0 0">
+
+
+                        <neq:NeqButton Style="{StaticResource NeqOutlineButton}"
+                                       Content="First button"
+                                       HorizontalAlignment="Center"/>
+
+
+                        <neq:NeqButton Style="{StaticResource NeqOutlineButton}"
+                                       Content="Disabled"
+                                       Margin="0 10 0 0"
+                                       IsEnabled="False"
+                                       HorizontalAlignment="Center"/>
+
+
+                    </StackPanel>
+
+                    <StackPanel Margin="10 0 0 0">
+
+                        <neq:NeqButton Style="{StaticResource NeqTransparentButton}"
+                                       Content="First button"
+                                       HorizontalAlignment="Center"/>
+
+
+                        <neq:NeqButton Style="{StaticResource NeqTransparentButton}"
+                                       Content="Disabled"
+                                       Margin="0 10 0 0"
+                                       IsEnabled="False"
+                                       HorizontalAlignment="Center"/>
+
+
+                    </StackPanel>
+                    
+
+                </StackPanel>
+
+                <TextBlock Text="Text box"
+                           Foreground="{DynamicResource ForegroundPrimary}"
+                           Margin="0 20 0 0"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+
+                    <neq:NeqTextBox Style="{StaticResource NeqTextBox}"
+                                Width="200"
+                                HorizontalAlignment="Left"
+                                IsEnabled="False"
+                                HintText="Disabled"/>
+
+                    <neq:NeqTextBox Style="{StaticResource NeqTextBox}"
+                                Width="200"
+                                Margin="10 0 0 0"
+                                HorizontalAlignment="Left"
+                                HintText="Hint for text box"/>
+
+                    <neq:NeqNumericTextBox Style="{StaticResource NeqTextBox}"
+                                Width="200"
+                                HorizontalAlignment="Left"
+                                Margin="10 0 0 0"
+                                HintText="Only numbers available"
+                                Minimum="0"
+                                Maximum="1000"/>
+
+
+                    <neq:NeqTextBox Style="{StaticResource NeqTextBox}"
+                                Width="200"
+                                    MaxHeight="200"
+                                Margin="10 0 0 0"
+                                AcceptsReturn="True"
+                                TextWrapping="NoWrap"
+                                HorizontalAlignment="Left"
+                                HintText="Multiline Text Box"/>
+
+                </StackPanel>
+
+                <TextBlock Text="Combo box"
+                           Foreground="{DynamicResource ForegroundPrimary}"
+                           Margin="0 20 0 0"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+
+                    <neq:NeqComboBox Style="{StaticResource NeqComboBox}"
+                              Width="200"
+                              HorizontalAlignment="Left"
+                              IsEnabled="False"
+                              SelectedIndex="0">
+
+                        <neq:NeqComboBox.Items>
+                            <ComboBoxItem Content="Disabled Combo Box"/>
+                            <ComboBoxItem Content="Disabled Item 1"/>
+                            <ComboBoxItem Content="Disabled Item 2"/>
+                            <ComboBoxItem Content="Disabled Item 3"/>
+                        </neq:NeqComboBox.Items>
+
+                    </neq:NeqComboBox>
+
+                    <neq:NeqComboBox Style="{StaticResource NeqComboBox}"
+                              Width="200"
+                              HorizontalAlignment="Left"
+                              IsEnabled="True"
+                              SelectedIndex="0"
+                              Margin="10 0 0 0"
+                              IsEditable="True">
+
+                        <neq:NeqComboBox.Items>
+                            <ComboBoxItem Content="Editable Combo Box"/>
+                            <ComboBoxItem Content="Editable Item 1"/>
+                            <ComboBoxItem Content="Editable Item 2"/>
+                            <ComboBoxItem Content="Editable Item 3"/>
+                        </neq:NeqComboBox.Items>
+                        
+                    </neq:NeqComboBox>
+
+                    <neq:NeqComboBox Style="{StaticResource NeqComboBox}"
+                              Width="200"
+                              HorizontalAlignment="Left"
+                              IsEnabled="True"
+                              SelectedIndex="0"
+                              Margin="10 0 0 0"
+                              IsEditable="False">
+
+                        <neq:NeqComboBox.Items>
+                            <ComboBoxItem Content="Plain Combo Box"/>
+                            <ComboBoxItem Content="Plain Item 1"/>
+                            <ComboBoxItem Content="Plain Item 2"/>
+                            <ComboBoxItem Content="Plain Item 3"/>
+                        </neq:NeqComboBox.Items>
+
+                    </neq:NeqComboBox>
+                    
+                    
+
+                </StackPanel>
+
+
+                <TextBlock Text="Slider"
+                           Foreground="{DynamicResource ForegroundPrimary}"
+                           Margin="0 20 0 0"/>
+
+                
+                
+                <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+
+                    <neq:NeqSlider Style="{StaticResource NeqSlider}"
+                            Height="150"
+                            TickPlacement="TopLeft"
+                            IsSnapToTickEnabled="True"
+                            Maximum="100"
+                            IsEnabled="False"
+                            TickFrequency="10"
+                            Orientation="Vertical"/>
+
+                    <neq:NeqSlider Style="{StaticResource NeqSlider}"
+                            Height="150"
+                            TickPlacement="None"
+                            Maximum="100"
+                            Margin="10 0 0 0"
+                            IsEnabled="False"
+                            Orientation="Vertical"/>
+
+
+                    <neq:NeqSlider Style="{StaticResource NeqAccentSlider}"
+                            Height="150"
+                            TickPlacement="TopLeft"
+                            IsSnapToTickEnabled="True"
+                            Maximum="100"
+                            TickFrequency="10"
+                            IsEnabled="False"
+                            Margin="10 0 0 0"
+                            Orientation="Vertical"/>
+
+                    <neq:NeqSlider Style="{StaticResource NeqAccentSlider}"
+                            Height="150"
+                            Maximum="100"
+                            IsEnabled="False"
+                            Margin="10 0 0 0"
+                            Orientation="Vertical"/>
+
+
+                    <neq:NeqSlider Style="{StaticResource NeqSlider}"
+                            Height="150"
+                            TickPlacement="TopLeft"
+                            IsSnapToTickEnabled="True"
+                            Maximum="100"
+                            Margin="20 0 0 0"
+                            TickFrequency="10"
+                            Orientation="Vertical"/>
+
+                    <neq:NeqSlider Style="{StaticResource NeqSlider}"
+                            Height="150"
+                            TickPlacement="None"
+                            Maximum="100"
+                            Margin="10 0 0 0"
+                            Orientation="Vertical"/>
+
+
+                    <neq:NeqSlider Style="{StaticResource NeqAccentSlider}"
+                            Height="150"
+                            TickPlacement="TopLeft"
+                            IsSnapToTickEnabled="True"
+                            Maximum="100"
+                            TickFrequency="10"
+                            Margin="10 0 0 0"
+                            Orientation="Vertical"/>
+
+                    <neq:NeqSlider Style="{StaticResource NeqAccentSlider}"
+                            Height="150"
+                            Maximum="100"
+                            Margin="10 0 0 0"
+                            Orientation="Vertical"/>
+
+                    <StackPanel Margin="20 0 0 0">
+
+
+                        <neq:NeqSlider Style="{StaticResource NeqSlider}"
+                            Width="150"
+                            TickPlacement="TopLeft"
+                            IsSnapToTickEnabled="True"
+                            Maximum="100"
+                            Margin="0 0 0 0"
+                            TickFrequency="10"
+                            Orientation="Horizontal"/>
+
+                        <neq:NeqSlider Style="{StaticResource NeqSlider}"
+                            Width="150"
+                            TickPlacement="None"
+                            Maximum="100"
+                            Margin="0 10 0 0"
+                            Orientation="Horizontal"/>
+
+                        <neq:NeqSlider Style="{StaticResource NeqAccentSlider}"
+                            Width="150"
+                            TickPlacement="TopLeft"
+                            IsSnapToTickEnabled="True"
+                            Maximum="100"
+                            TickFrequency="10"
+                            Margin="0 10 0 0"
+                            Orientation="Horizontal"/>
+
+                        <neq:NeqSlider Style="{StaticResource NeqAccentSlider}"
+                            Width="150"
+                            Maximum="100"
+                            Margin="0 10 0 0"
+                            Orientation="Horizontal"/>
+
+                    </StackPanel>
+
+                    <StackPanel Margin="20 0 0 0">
+
+
+                        <neq:NeqSlider Style="{StaticResource NeqSlider}"
+                            Width="150"
+                            TickPlacement="TopLeft"
+                            IsSnapToTickEnabled="True"
+                            Maximum="100"
+                                IsEnabled="False"
+                            Margin="0 0 0 0"
+                            TickFrequency="10"
+                            Orientation="Horizontal"/>
+
+                        <neq:NeqSlider Style="{StaticResource NeqSlider}"
+                            Width="150"
+                            TickPlacement="None"
+                                IsEnabled="False"
+                            Maximum="100"
+                            Margin="0 10 0 0"
+                            Orientation="Horizontal"/>
+
+                        <neq:NeqSlider Style="{StaticResource NeqAccentSlider}"
+                            Width="150"
+                            TickPlacement="TopLeft"
+                            IsSnapToTickEnabled="True"
+                            Maximum="100"
+                            TickFrequency="10"
+                            Margin="0 10 0 0"
+                            Orientation="Horizontal"
+                                IsEnabled="False"/>
+
+                        <neq:NeqSlider Style="{StaticResource NeqAccentSlider}"
+                            Width="150"
+                            Maximum="100"
+                            Margin="0 10 0 0"
+                            Orientation="Horizontal"
+                            IsEnabled="False"/>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+
+            </StackPanel>
+            
+            
+            
+          
+                
+        </ScrollViewer>
+        
+       
+        
+      
+
+        
+    </Grid>
+</Window>
