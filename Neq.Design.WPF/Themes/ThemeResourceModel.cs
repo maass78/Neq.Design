@@ -6,10 +6,11 @@ namespace Neq.Design.WPF.Themes
     {
         private Theme _theme;
 
-        public ThemeResourceModel(Theme theme, string resourceName)
+        public ThemeResourceModel(Theme theme, string resourceName, int order = 0)
         {
             ResourceName = resourceName;
-            
+            Order = order;
+
             _theme = theme;
             _theme.PropertyChanged += (s, e) =>
             {
@@ -18,6 +19,8 @@ namespace Neq.Design.WPF.Themes
             };
 
         }
+
+        public int Order { get; }
 
         public string ResourceName { get; }
         

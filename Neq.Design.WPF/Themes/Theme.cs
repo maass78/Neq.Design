@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -365,12 +366,12 @@ namespace Neq.Design.WPF.Themes
 
                 foreach (var attr in attrs)
                 {
-                    if (attr is ThemeResourceAttribute)
-                        list.Add(new ThemeResourceModel(this, prop.Name));
+                    if (attr is ThemeResourceAttribute themeResourceAttr)
+                        list.Add(new ThemeResourceModel(this, prop.Name, themeResourceAttr.Order));
                 }
             }
 
-            return list.AsReadOnly();
+            return list.OrderBy(x => x.Order).ToList().AsReadOnly();
         }
     }
 }
