@@ -21,11 +21,12 @@
 
     <Window.Resources>
 
+        <converters:BoolInverterConverter x:Key="boolInverterConverter"/>
 
         <DrawingImage x:Key="AddIcon">
             <DrawingImage.Drawing>
                 <DrawingGroup ClipGeometry="M0,0 V24 H24 V0 H0 Z">
-                    <GeometryDrawing Brush="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type neq:NeqButton}}, Path=Foreground}" Geometry="F1 M24,24z M0,0z M19,13L13,13 13,19 11,19 11,13 5,13 5,11 11,11 11,5 13,5 13,11 19,11 19,13z" />
+                    <GeometryDrawing Brush="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type neq:NeqToggleButton}}, Path=Foreground}" Geometry="F1 M24,24z M0,0z M19,13L13,13 13,19 11,19 11,13 5,13 5,11 11,11 11,5 13,5 13,11 19,11 19,13z" />
                 </DrawingGroup>
             </DrawingImage.Drawing>
         </DrawingImage>
@@ -41,7 +42,9 @@
                       ResizeBorderThickness="7"/>
     </WindowChrome.WindowChrome>
 
-    <Grid x:Name="gridMain" Background="{DynamicResource BackgroundPrimary}" SnapsToDevicePixels="False">
+    <Grid x:Name="gridMain" 
+          Background="{DynamicResource BackgroundPrimary}" 
+          SnapsToDevicePixels="False">
         
         <Grid.RowDefinitions>
             <RowDefinition Height="24"/>
@@ -115,15 +118,61 @@
 
                 </Grid.RowDefinitions>
 
-                <neq:NeqButton Style="{StaticResource NeqTransparentButton}"
-                               Width="32"
-                               Height="32"
-                               Margin="10 0"
-                               HorizontalAlignment="Left"
-                               Padding="2"
-                               Background="{DynamicResource BackgroundPrimary}"
-                               Icon="{StaticResource AddIcon}"
-                               VerticalAlignment="Center"/>
+                <neq:NeqToggleButton Style="{StaticResource NeqToggleButton}"
+                                     x:Name="buttonAdd"
+                                     Width="32"
+                                     Height="32"
+                                     Margin="10 0"
+                                     HorizontalAlignment="Left"
+                                     Padding="2"
+                                     IsChecked="{Binding IsAddPopupVisible, Mode=TwoWay}"
+                                     Icon="{StaticResource AddIcon}"
+                                     VerticalAlignment="Center"
+                                     IsHitTestVisible="{Binding ElementName=popupAdd, Path=IsOpen, Mode=OneWay, Converter={StaticResource boolInverterConverter}}"/>
+
+                <Popup x:Name="popupAdd"
+                       IsOpen="{Binding ElementName=buttonAdd, Path=IsChecked}"
+                       StaysOpen="False"
+                       Placement="Bottom"
+                       AllowsTransparency="True"
+                       PopupAnimation="Fade"
+                       PlacementTarget="{Binding ElementName=buttonAdd}">
+
+                    <Border CornerRadius="{DynamicResource CornerRadius}"
+                            Background="{DynamicResource BackgroundPrimary}"
+                            BorderBrush="{DynamicResource BackgroundStroke}"
+                            BorderThickness="2"
+                            Padding="10">
+
+                        <StackPanel Orientation="Vertical"
+                                    Focusable="False"
+                                    Margin="0 0 0 0">
+
+                            <TextBlock Text="Based on"
+                                       Foreground="{DynamicResource ForegroundPrimary}"
+                                       HorizontalAlignment="Center"/>
+
+                            <neq:NeqComboBox Width="160"
+                                             Style="{StaticResource NeqComboBox}"
+                                             ItemsSource="{Binding AllThemes}"
+                                             SelectedItem="{Binding AddSelectedTheme, Mode=TwoWay}"
+                                             DisplayMemberPath="ThemeName"
+                                             Margin="0 6 0 0"
+                                             MaxDropDownHeight="200"/>
+
+                            <neq:NeqButton Style="{StaticResource NeqAccentButton}"
+                                           Content="Create"
+                                           Command="{Binding AddThemeCommand}"
+                                           HorizontalContentAlignment="Center"
+                                           Margin="0 10 0 0"/>
+
+                        </StackPanel>
+
+                    </Border>
+
+
+
+                </Popup>
 
                 <neq:NeqTextBox x:Name="textBoxSearch"
                                 Text="{Binding ThemesSearch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -141,7 +190,8 @@
                          ItemsSource="{Binding ThemesCollectionView}">
 
                     <ListBox.Resources>
-                         <helpers:BindingProxy x:Key="BindingProxy" Data="{Binding}" />
+                         <helpers:BindingProxy x:Key="BindingProxy" 
+                                               Data="{Binding}" />
                     </ListBox.Resources>
                     
                     
@@ -159,16 +209,31 @@
 
                                     <Setter.Value>
 
-                                        <ContextMenu Style="{DynamicResource NeqContextMenu}">
-                                            <neq:NeqMenuItem Style="{DynamicResource NeqMenuItem}"
-                                                      Header="Remove"
-                                                      Command="{Binding Data.RemoveThemeCommand, Source={StaticResource BindingProxy}}">
-                                            </neq:NeqMenuItem>
+                                        <neq:NeqContextMenu Style="{DynamicResource NeqContextMenu}">
 
                                             <neq:NeqMenuItem Style="{DynamicResource NeqMenuItem}"
-                                                      Header="Checkable"
-                                                      IsCheckable="True"/>
-                                        </ContextMenu>
+                                                             Header="Set this theme"
+                                                             Command="{Binding Data.SetThemeCommand, Source={StaticResource BindingProxy}}"
+                                                             IsCheckable="True"
+                                                             IsChecked="{Binding Data.IsSelectedThemeActive, Source={StaticResource BindingProxy}}"/>
+
+                                            <neq:NeqMenuItem Style="{DynamicResource NeqMenuItem}"
+                                                             Header="Remove"
+                                                             Command="{Binding Data.RemoveThemeCommand, Source={StaticResource BindingProxy}}">
+
+                                                <neq:NeqMenuItem.IconSource>
+                                                    <DrawingImage>
+                                                        <DrawingImage.Drawing>
+                                                            <DrawingGroup ClipGeometry="M0,0 V24 H24 V0 H0 Z">
+                                                                <GeometryDrawing Brush="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type neq:NeqMenuItem}}, Path=Foreground}" Geometry="F1 M24,24z M0,0z M19,4L15.5,4 14.5,3 9.5,3 8.5,4 5,4 5,6 19,6 M6,19A2,2,0,0,0,8,21L16,21A2,2,0,0,0,18,19L18,7 6,7 6,19z" />
+                                                            </DrawingGroup>
+                                                        </DrawingImage.Drawing>
+                                                    </DrawingImage>
+                                                </neq:NeqMenuItem.IconSource>
+
+                                            </neq:NeqMenuItem>
+
+                                        </neq:NeqContextMenu>
 
                                     </Setter.Value>
 

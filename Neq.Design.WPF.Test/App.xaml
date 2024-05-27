@@ -27,6 +27,7 @@
 
                 <ResourceDictionary Source="/Neq.Design.WPF;component/Themes/DarkTheme.xaml"/>
                 <ResourceDictionary Source="/Neq.Design.WPF;component/NeqDesignDictionary.xaml"/>
+                <ResourceDictionary Source="/Neq.Design.WPF;component/NeqApplyStyles.xaml"/>
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

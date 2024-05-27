@@ -9,6 +9,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="1000" Width="1000" FontSize="16" WindowStyle="None">
 
+    <Window.Resources>
+
+       
+
+
+    </Window.Resources>
+    
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0" 
                       CornerRadius="{DynamicResource CornerRadius}" 
@@ -27,21 +34,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Menu Grid.Row="1"
-              HorizontalAlignment="Left"
-              VerticalAlignment="Top">
-
-            <!--<neq:NeqMenuItem 
-                             Header="sdasdasf" IsEnabled="True">
-
-                <neq:NeqMenuItem  Header="submenu item"/>
-                <neq:NeqMenuItem  Header="submenu item"/>
-                <neq:NeqMenuItem  Header="submenu item"/>
-                <neq:NeqMenuItem  Header="submenu item"/>
-
-            </neq:NeqMenuItem>-->
-
-        </Menu>
+       
 
         <Border HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
@@ -89,7 +82,45 @@
             <StackPanel Orientation="Vertical"
                         Margin="20">
 
-                <ext:NeqHSLColorPicker FontSize="14"
+                <neq:NeqButton Content="sdasd"/>
+
+                <neq:NeqMenu Grid.Row="1"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      Style="{StaticResource NeqMenu}">
+
+                    <neq:NeqMenuItem Style="{StaticResource NeqMenuItem}" 
+                                     Header="Checkable item" 
+                                     IsEnabled="True" 
+                                     IsCheckable="True"/>
+
+                    <neq:NeqMenuItem Style="{StaticResource NeqMenuItem}" 
+                                     Header="Open submenu" 
+                                     IsEnabled="True">
+
+                        <neq:NeqMenuItem Style="{StaticResource NeqMenuItem}" 
+                                         Header="Submenu item"/>
+                        
+                        <neq:NeqMenuItem Style="{StaticResource NeqMenuItem}" 
+                                         Header="Submenu header">
+                            
+                            <neq:NeqMenuItem Style="{StaticResource NeqMenuItem}" 
+                                             IsCheckable="True" 
+                                             Header="Checkable"/>
+
+                            <neq:NeqMenuItem Style="{StaticResource NeqMenuItem}" 
+                                             Header="Submenu item"/>
+                            
+                        </neq:NeqMenuItem>
+                        
+                        <neq:NeqMenuItem Style="{StaticResource NeqMenuItem}" 
+                                         Header="Submenu item"/>
+
+                    </neq:NeqMenuItem>
+
+                </neq:NeqMenu>
+
+                <ext:NeqHSLColorPicker FontSize="16"
                                        SelectedColor="Aqua"
                                        Margin="20"
                                        x:Name="ss"/>

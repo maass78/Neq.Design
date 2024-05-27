@@ -373,5 +373,7 @@ namespace Neq.Design.WPF.Themes
 
             return list.OrderBy(x => x.Order).ToList().AsReadOnly();
         }
+
+        public override string ToString() => ThemeName;
     }
 }

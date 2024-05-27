@@ -42,5 +42,23 @@ namespace Neq.Design.WPF.Controls
             set { SetValue(InputGestureTextBrushProperty, value); }
         }
 
+        public static readonly DependencyProperty PopupBackgroundBrushProperty =
+        DependencyProperty.Register("PopupBackgroundBrush", typeof(Brush), typeof(NeqMenuItem), new PropertyMetadata());
+
+        public Brush PopupBackgroundBrush
+        {
+            get { return (Brush)GetValue(PopupBackgroundBrushProperty); }
+            set { SetValue(PopupBackgroundBrushProperty, value); }
+        }
+
+        public static readonly DependencyProperty PopupPaddingProperty =
+        DependencyProperty.Register("PopupPadding", typeof(Thickness), typeof(NeqMenuItem), new PropertyMetadata() { DefaultValue = new Thickness(0) });
+
+        public Thickness PopupPadding
+        {
+            get { return (Thickness)GetValue(PopupPaddingProperty); }
+            set { SetValue(PopupPaddingProperty, value); }
+        }
+
     }
 }

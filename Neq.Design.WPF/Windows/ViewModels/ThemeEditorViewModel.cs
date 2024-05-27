@@ -1,5 +1,6 @@
 ﻿using Neq.Design.WPF.Helpers;
 using Neq.Design.WPF.Themes;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Data;
@@ -29,9 +30,45 @@ namespace Neq.Design.WPF.Windows.ViewModels
                 _selectedTheme = value;
                 Notify();
 
+                IsSelectedThemeActive = _selectedTheme == _themes.CurrentTheme;
+                AddSelectedTheme = _selectedTheme ?? _themes.CurrentTheme;
+
                 _themeResourcesCollectionViewSource.Source = value?.GetThemeResources();
                 ThemeResourcesCollectionView?.Refresh();
                 Notify(nameof(ThemeResourcesCollectionView));
+            }
+        }
+
+        private Theme _addSelectedTheme;
+        public Theme AddSelectedTheme
+        {
+            get => _addSelectedTheme;
+            set
+            {
+                _addSelectedTheme = value;
+                Notify();
+            }
+        }
+
+        private bool _isSelectedThemeActive;
+        public bool IsSelectedThemeActive
+        {
+            get => _isSelectedThemeActive;
+            set
+            {
+                _isSelectedThemeActive = value;
+                Notify();
+            }
+        }
+
+        private bool _isAddPopupVisible;
+        public bool IsAddPopupVisible
+        {
+            get => _isAddPopupVisible;
+            set
+            {
+                _isAddPopupVisible = value;
+                Notify();
             }
         }
 
@@ -57,6 +94,8 @@ namespace Neq.Design.WPF.Windows.ViewModels
 
         public ICollectionView ThemeResourcesCollectionView => _themeResourcesCollectionViewSource.View;
 
+        public ObservableCollection<Theme> AllThemes => _themes.ThemesCollection;
+
         private Themes.Themes _themes;
 
 
@@ -66,12 +105,23 @@ namespace Neq.Design.WPF.Windows.ViewModels
             get
             {
                 if (_addThemeCommand == null)
-                    _addThemeCommand = new RelayCommand(RemoveTheme, CanRemoveTheme);
+                    _addThemeCommand = new RelayCommand(AddTheme, CanAddTheme);
 
                 return _addThemeCommand;
             }
         }
+        
+        private RelayCommand _setThemeCommand;
+        public RelayCommand SetThemeCommand
+        {
+            get
+            {
+                if (_setThemeCommand == null)
+                    _setThemeCommand = new RelayCommand(SetTheme, CanSetTheme);
 
+                return _setThemeCommand;
+            }
+        }
 
 
         private RelayCommand _removeThemeCommand;
@@ -89,6 +139,7 @@ namespace Neq.Design.WPF.Windows.ViewModels
         public ThemeEditorViewModel(Themes.Themes themes)
         {
             _themes = themes;
+            AddSelectedTheme = SelectedTheme ?? _themes.CurrentTheme;
 
             _themesCollectionViewSource = new CollectionViewSource()
             {
@@ -132,7 +183,28 @@ namespace Neq.Design.WPF.Windows.ViewModels
 
         private bool CanRemoveTheme(object param) => _themes?.ThemesCollection != null && _themes.ThemesCollection.Count > 1 && SelectedTheme != _themes.CurrentTheme;
 
+        private void SetTheme(object param)
+        {
+            if (SelectedTheme != null)
+                _themes.CurrentTheme = SelectedTheme;
+        }
 
+        private bool CanSetTheme(object param) => _themes?.ThemesCollection != null && _themes.ThemesCollection.Count > 1 && SelectedTheme != _themes.CurrentTheme;
+
+
+        private void AddTheme(object param)
+        {
+            if (AddSelectedTheme == null)
+                return;
+
+            var theme = new Theme(AddSelectedTheme) { ThemeName = "New Theme" };
+            _themes.ThemesCollection.Add(theme);
+            SelectedTheme = theme;
+
+            IsAddPopupVisible = false;
+        }
+
+        private bool CanAddTheme(object param) => AddSelectedTheme != null;
 
         public event PropertyChangedEventHandler PropertyChanged;
 

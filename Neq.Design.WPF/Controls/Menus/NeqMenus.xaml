@@ -3,8 +3,15 @@
                     xmlns:neq="clr-namespace:Neq.Design.WPF.Controls"
                     xmlns:converters="clr-namespace:Neq.Design.WPF.Converters">
 
+    <DrawingImage x:Key="NeqMenuRightIcon">
+        <DrawingImage.Drawing>
+            <DrawingGroup ClipGeometry="M0,0 V24 H24 V0 H0 Z">
+                <GeometryDrawing Brush="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type neq:NeqMenuItem}}, Path=Foreground}" Geometry="F1 M24,24z M0,0z M10,17L15,12 10,7 10,17z" />
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
 
-    <ContextMenu x:Key="NeqTextBoxContextMenu" Style="{DynamicResource NeqContextMenu}">
+    <neq:NeqContextMenu x:Key="NeqTextBoxContextMenu" Style="{DynamicResource NeqContextMenu}">
         
         <neq:NeqMenuItem Command="Cut" Style="{DynamicResource NeqMenuItem}">
             <neq:NeqMenuItem.IconSource>
@@ -49,9 +56,9 @@
                     </DrawingImage.Drawing>
                 </DrawingImage>
             </neq:NeqMenuItem.IconSource>
-        </neq:NeqMenuItem> 
-        
-    </ContextMenu>
+        </neq:NeqMenuItem>
+
+    </neq:NeqContextMenu>
 
     <converters:SourceToImageConverter x:Key="sourceToImageConverter"/>
 
@@ -92,8 +99,8 @@
                        PopupAnimation="Fade" 
                        PlacementTarget="{Binding ElementName=border}">
 
-                    <Border Background="{TemplateBinding Background}"
-                            Padding="{TemplateBinding Padding}"
+                    <Border Background="{TemplateBinding PopupBackgroundBrush}"
+                            Padding="{TemplateBinding PopupPadding}"
                             CornerRadius="{TemplateBinding CornerRadius}">
 
                         <ScrollViewer HorizontalScrollBarVisibility="Disabled"
@@ -131,19 +138,102 @@
                 <Setter TargetName="icon" Property="Visibility" Value="Collapsed"/>
             </MultiTrigger>
 
-            <!--<Trigger Property="InputGestureText" Value="{x:Null}">
-                <Setter TargetName="inputGestureText" Property="Visibility" Value="Collapsed"/>
-            </Trigger>
-
-            <Trigger Property="InputGestureText" Value="">
-                <Setter TargetName="inputGestureText" Property="Visibility" Value="Collapsed"/>
-            </Trigger>-->
 
         </ControlTemplate.Triggers>
 
     </ControlTemplate>
-    
-    <ControlTemplate x:Key="NeqTopLevelItemTemplate" TargetType="{x:Type neq:NeqMenuItem}">
+
+    <ControlTemplate x:Key="NeqSubmenuHeaderTemplate" TargetType="{x:Type neq:NeqMenuItem}">
+
+        <Border BorderThickness="{TemplateBinding BorderThickness}"
+                Background="{TemplateBinding Background}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                Padding="{TemplateBinding Padding}"
+                x:Name="border">
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Icon"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="InputGestureText"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="ExpandIcon"/>
+                </Grid.ColumnDefinitions>
+
+                <ContentPresenter x:Name="icon"
+                                  Grid.Column="0"
+                                  Content="{TemplateBinding Converter={StaticResource sourceToImageConverter}, Property=IconSource}"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Center"
+                                  Width="20"
+                                  Height="20"
+                                  Margin="{TemplateBinding IconMargin}"/>
+
+                <ContentPresenter ContentSource="Header"
+                                  Grid.Column="1"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Center"/>
+
+                <ContentPresenter Grid.Column="3"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Right"
+                                  Width="20"
+                                  Margin="6 0 0 0"
+                                  Height="20"
+                                  Content="{Binding Source={StaticResource NeqMenuRightIcon}, Converter={StaticResource sourceToImageConverter}}"/>
+
+                <Popup x:Name="PART_Popup" 
+                       AllowsTransparency="True" 
+                       Focusable="False" 
+                       IsOpen="{TemplateBinding IsSubmenuOpen}" 
+                       Placement="Right"
+                       PopupAnimation="Fade" 
+                       PlacementTarget="{Binding ElementName=border}">
+
+                    <Border Background="{TemplateBinding PopupBackgroundBrush}"
+                            Padding="{TemplateBinding PopupPadding}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+
+                        <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                      VerticalScrollBarVisibility="Auto">
+
+                            <StackPanel IsItemsHost="True"
+                                        KeyboardNavigation.DirectionalNavigation="Cycle"
+                                        Grid.IsSharedSizeScope="True"/>
+
+                        </ScrollViewer>
+
+                    </Border>
+                </Popup>
+
+            </Grid>
+        </Border>
+
+        <ControlTemplate.Triggers>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsCheckable" Value="True"/>
+                    <Condition Property="IsChecked" Value="False"/>
+                </MultiTrigger.Conditions>
+
+                <Setter TargetName="icon" Property="Visibility" Value="Hidden"/>
+            </MultiTrigger>
+
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsCheckable" Value="False"/>
+                    <Condition Property="IconSource" Value="{x:Null}"/>
+                </MultiTrigger.Conditions>
+
+                <Setter TargetName="icon" Property="Visibility" Value="Collapsed"/>
+            </MultiTrigger>
+
+        </ControlTemplate.Triggers>
+
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="NeqItemTemplate" TargetType="{x:Type neq:NeqMenuItem}">
 
         <Border BorderThickness="{TemplateBinding BorderThickness}"
                 Background="{TemplateBinding Background}"
@@ -156,6 +246,7 @@
                     <ColumnDefinition Width="Auto" SharedSizeGroup="Icon"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto" SharedSizeGroup="InputGestureText"/>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="ExpandIcon"/>
                 </Grid.ColumnDefinitions>
 
                 <ContentPresenter x:Name="icon"
@@ -216,8 +307,10 @@
         <Style.Setters>
             <Setter Property="Background" Value="{DynamicResource BackgroundPrimary}"/>
             <Setter Property="Foreground" Value="{DynamicResource ForegroundPrimary}"/>
+            <Setter Property="PopupBackgroundBrush" Value="{DynamicResource BackgroundPrimary}"/>
             <Setter Property="InputGestureTextBrush" Value="{DynamicResource ForegroundSecondary}"/>
             <Setter Property="CornerRadius" Value="{DynamicResource CornerRadius}"/>
+            <Setter Property="PopupPadding" Value="6"/>
             <Setter Property="Padding" Value="10 7"/>
             <Setter Property="IconMargin" Value="0 0 10 0"/>
             <Setter Property="BorderThickness" Value="0"/>
@@ -230,11 +323,19 @@
             <Trigger Property="Role" Value="TopLevelHeader">
                 <Setter Property="Template" Value="{StaticResource NeqTopLevelHeaderTemplate}"/>
             </Trigger>
-            
-            <Trigger Property="Role" Value="TopLevelItem">
-                <Setter Property="Template" Value="{StaticResource NeqTopLevelItemTemplate}"/>
+
+            <Trigger Property="Role" Value="SubmenuHeader">
+                <Setter Property="Template" Value="{StaticResource NeqSubmenuHeaderTemplate}"/>
             </Trigger>
-            
+
+            <Trigger Property="Role" Value="TopLevelItem">
+                <Setter Property="Template" Value="{StaticResource NeqItemTemplate}"/>
+            </Trigger>
+
+            <Trigger Property="Role" Value="SubmenuItem">
+                <Setter Property="Template" Value="{StaticResource NeqItemTemplate}"/>
+            </Trigger>
+
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundDisabled}"/>
                 <Setter Property="InputGestureTextBrush" Value="{DynamicResource ForegroundDisabled}"/>
@@ -271,24 +372,27 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Name="NeqMenu" TargetType="{x:Type Menu}">
+    <Style x:Key="NeqMenu" TargetType="{x:Type neq:NeqMenu}">
         <Style.Setters>
             <Setter Property="Background" Value="{DynamicResource BackgroundPrimary}"/>
+            <Setter Property="CornerRadius" Value="{DynamicResource CornerRadius}"/>
+            <Setter Property="Orientaion" Value="Horizontal"/>
             <Setter Property="Padding" Value="6"/>
             <Setter Property="OverridesDefaultStyle" Value="True"/>
 
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Menu}">
+                    <ControlTemplate TargetType="{x:Type neq:NeqMenu}">
 
                         <Border Background="{TemplateBinding Background}"
                                 Padding="{TemplateBinding Padding}"
-                                CornerRadius="{DynamicResource CornerRadius}">
+                                CornerRadius="{TemplateBinding CornerRadius}">
 
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled"
                                           VerticalScrollBarVisibility="Auto">
 
                                 <StackPanel IsItemsHost="True"
+                                            Orientation="{TemplateBinding Orientaion}"
                                             KeyboardNavigation.DirectionalNavigation="Cycle"
                                             Grid.IsSharedSizeScope="True"/>
 
@@ -303,9 +407,10 @@
         </Style.Setters>
     </Style>
     
-    <Style x:Key="NeqContextMenu" TargetType="{x:Type ContextMenu}">
+    <Style x:Key="NeqContextMenu" TargetType="{x:Type neq:NeqContextMenu}">
         <Style.Setters>
             <Setter Property="Background" Value="{DynamicResource BackgroundPrimary}"/>
+            <Setter Property="CornerRadius" Value="{DynamicResource CornerRadius}"/>
             <Setter Property="ContextMenuService.Placement" Value="Mouse"/>
             <Setter Property="HasDropShadow" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -313,11 +418,11 @@
 
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ContextMenu}">
+                    <ControlTemplate TargetType="{x:Type neq:NeqContextMenu}">
 
                         <Border Background="{TemplateBinding Background}"
                                 Padding="{TemplateBinding Padding}"
-                                CornerRadius="{DynamicResource CornerRadius}">
+                                CornerRadius="{TemplateBinding CornerRadius}">
 
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled"
                                           VerticalScrollBarVisibility="Auto">

@@ -92,6 +92,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="NeqApplyStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\NeqResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -125,6 +129,8 @@
     <Compile Include="Controls\Extended\NeqHSLColorPicker.xaml.cs">
       <DependentUpon>NeqHSLColorPicker.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Menus\NeqContextMenu.cs" />
+    <Compile Include="Controls\Menus\NeqMenu.cs" />
     <Compile Include="Controls\Menus\NeqMenuItem.cs" />
     <Compile Include="Controls\RadioButtons\NeqRadioButton.cs" />
     <Compile Include="Controls\Sliders\NeqSlider.cs" />

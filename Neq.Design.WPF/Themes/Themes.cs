@@ -94,8 +94,11 @@ namespace Neq.Design.WPF.Themes
 
                 foreach (var dict in _appResources.MergedDictionaries)
                 {
-                    foreach (string key in dict.Keys)
+                    foreach (object keyObj in dict.Keys)
                     {
+                        if (!(keyObj is string key))
+                            continue;
+
                         if (key == IsThemeFlag && dict[key] is bool isTheme && isTheme)
                             oldDict = dict;
                     }

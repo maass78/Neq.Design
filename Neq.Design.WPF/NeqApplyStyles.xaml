@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:neq="clr-namespace:Neq.Design.WPF.Controls">
+    
+    <Style TargetType="{x:Type neq:NeqButton}" BasedOn="{StaticResource NeqButton}"/>
+
+    <Style TargetType="{x:Type neq:NeqCheckBox}" BasedOn="{StaticResource NeqCheckBox}"/>
+    
+    <Style TargetType="{x:Type neq:NeqComboBox}" BasedOn="{StaticResource NeqComboBox}"/>
+    
+    <Style TargetType="{x:Type neq:NeqMenu}" BasedOn="{StaticResource NeqMenu}"/>
+    <Style TargetType="{x:Type neq:NeqContextMenu}" BasedOn="{StaticResource NeqContextMenu}"/>
+    <Style TargetType="{x:Type neq:NeqMenuItem}" BasedOn="{StaticResource NeqMenuItem}"/>
+    
+    <Style TargetType="{x:Type neq:NeqRadioButton}" BasedOn="{StaticResource NeqRadioButton}"/>
+    
+    <Style TargetType="{x:Type neq:NeqSlider}" BasedOn="{StaticResource NeqSlider}"/>
+
+    <Style TargetType="{x:Type neq:NeqTextBox}" BasedOn="{StaticResource NeqTextBox}"/>
+    <Style TargetType="{x:Type neq:NeqNumericTextBox}" BasedOn="{StaticResource NeqTextBox}"/>
+    <Style TargetType="{x:Type neq:NeqDecimalNumericTextBox}" BasedOn="{StaticResource NeqTextBox}"/>
+    <Style TargetType="{x:Type neq:NeqDoubleNumericTextBox}" BasedOn="{StaticResource NeqTextBox}"/>
+
+    <Style TargetType="{x:Type neq:NeqToggleButton}" BasedOn="{StaticResource NeqToggleButton}"/>
+    
+    <Style TargetType="{x:Type neq:NeqToolTip}" BasedOn="{StaticResource NeqToolTip}"/>
+
+</ResourceDictionary>
