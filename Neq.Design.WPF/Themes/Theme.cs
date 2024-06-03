@@ -22,6 +22,16 @@ namespace Neq.Design.WPF.Themes
             set { _themeName = value; Notify(); }
         }
 
+        private double _fontSize { get; set; }
+
+        [ThemeResource]
+        public double FontSize
+        {
+            get => _fontSize;
+            set { _fontSize = value; Notify(); }
+        }
+
+
         private Brush _foregroundPrimary;
 
         [ThemeResource]
@@ -220,6 +230,15 @@ namespace Neq.Design.WPF.Themes
             set { _transparentBackgroundLight = value; Notify(); }
         }
 
+        private Brush _focusVisualBrush;
+
+        [ThemeResource]
+        public Brush FocusVisualBrush
+        {
+            get => _focusVisualBrush;
+            set { _focusVisualBrush = value; Notify(); }
+        }
+
         private CornerRadius _cornerRadius;
 
         [ThemeResource]
@@ -237,6 +256,8 @@ namespace Neq.Design.WPF.Themes
             get => _isTheme;
             set { _isTheme = value; Notify(); }
         }
+
+
 
 
         private ResourceDictionary _compiledResources;

@@ -14,12 +14,15 @@
 
         <Style.Setters>
             
+            <Setter Property="FocusVisualStyle" Value="{DynamicResource NeqFocusVisual}"/>
+            
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="BorderBrush" Value="{DynamicResource ControlBackgroundHover}"/>
             <Setter Property="Background" Value="{DynamicResource ControlBackground}"/>
             <Setter Property="Foreground" Value="{DynamicResource ForegroundPrimary}"/>
-            <Setter Property="HintColor" Value="{DynamicResource ForegroundSecondary}"/>
+            <Setter Property="HintBrush" Value="{DynamicResource ForegroundSecondary}"/>
             <Setter Property="SelectionBrush" Value="{DynamicResource TextBoxSelection}"/>
+            <Setter Property="SelectionOpacity" Value="1"/>
             <Setter Property="CornerRadius" Value="{DynamicResource CornerRadius}"/>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="Template">
@@ -50,7 +53,7 @@
                                            FontSize="{TemplateBinding FontSize}"
                                            FontWeight="{TemplateBinding FontWeight}"
                                            FontFamily="{TemplateBinding FontFamily}"
-                                           Foreground="{TemplateBinding HintColor}">
+                                           Foreground="{TemplateBinding HintBrush}">
 
                                     <TextBlock.Style>
                                         <Style TargetType="TextBlock">
@@ -82,16 +85,56 @@
 
         <Style.Triggers>
 
-            <Trigger Property="IsFocused" Value="True">
-                <Setter Property="BorderBrush" Value="{DynamicResource Accent}"/>
-            </Trigger>
+            <MultiTrigger>
 
-            <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="HintColor" Value="{DynamicResource ForegroundDisabled}"/>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsFocused" Value="True"/>
+                    <Condition Property="IsDestructive" Value="True"/>
+                </MultiTrigger.Conditions>
+
+                <Setter Property="BorderBrush" Value="{DynamicResource DestructiveForeground}"/>
+
+            </MultiTrigger>
+
+            <MultiTrigger>
+
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsFocused" Value="True"/>
+                    <Condition Property="IsDestructive" Value="False"/>
+                </MultiTrigger.Conditions>
+
+                <Setter Property="BorderBrush" Value="{DynamicResource Accent}"/>
+
+            </MultiTrigger>
+
+
+            <MultiTrigger>
+
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsEnabled" Value="False"/>
+                    <Condition Property="IsDestructive" Value="False"/>
+                </MultiTrigger.Conditions>
+
+                <Setter Property="HintBrush" Value="{DynamicResource ForegroundDisabled}"/>
                 <Setter Property="Foreground" Value="{DynamicResource ForegroundDisabled}"/>
                 <Setter Property="Background" Value="{DynamicResource ControlBackgroundDisabled}"/>
                 <Setter Property="BorderBrush" Value="{DynamicResource ControlBackgroundDisabled}"/>
-            </Trigger>
+
+            </MultiTrigger>
+
+            <MultiTrigger>
+
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsEnabled" Value="False"/>
+                    <Condition Property="IsDestructive" Value="True"/>
+                </MultiTrigger.Conditions>
+
+                <Setter Property="HintBrush" Value="{DynamicResource ForegroundDisabled}"/>
+                <Setter Property="Foreground" Value="{DynamicResource ForegroundDisabled}"/>
+                <Setter Property="Background" Value="{DynamicResource ControlBackgroundDisabled}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource DestructiveForegroundDisabled}"/>
+
+            </MultiTrigger>
 
         </Style.Triggers>
 

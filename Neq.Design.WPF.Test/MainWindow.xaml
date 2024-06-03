@@ -7,7 +7,8 @@
         xmlns:neq="clr-namespace:Neq.Design.WPF.Controls;assembly=Neq.Design.WPF" 
         xmlns:ext="clr-namespace:Neq.Design.WPF.Controls.Extended;assembly=Neq.Design.WPF" 
         mc:Ignorable="d"
-        Title="MainWindow" Height="1000" Width="1000" FontSize="16" WindowStyle="None">
+        Title="MainWindow" SnapsToDevicePixels="True" Height="1000" Width="1000" 
+        FontSize="{DynamicResource FontSize}" WindowStyle="None">
 
     <Window.Resources>
 

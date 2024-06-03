@@ -10,9 +10,12 @@
         <Style.Setters>
 
             <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="FocusVisualStyle" Value="{DynamicResource NeqFocusVisual}"/>
+            
             <Setter Property="IconMargin" Value="0"/>
             <Setter Property="CornerRadius" Value="{DynamicResource CornerRadius}"/>
             <Setter Property="Padding" Value="10 8"/>
+            
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type neq:NeqButton}">

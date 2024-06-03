@@ -6,13 +6,13 @@ namespace Neq.Design.WPF.Controls
 {
     public class NeqTextBox : TextBox
     {
-        public static readonly DependencyProperty HintColorProperty =
-            DependencyProperty.Register("HintColor", typeof(Brush), typeof(NeqTextBox), new PropertyMetadata() { DefaultValue = new SolidColorBrush() });
+        public static readonly DependencyProperty HintBrushProperty =
+            DependencyProperty.Register("HintBrush", typeof(Brush), typeof(NeqTextBox), new PropertyMetadata() { DefaultValue = new SolidColorBrush() });
 
-        public Brush HintColor
+        public Brush HintBrush
         {
-            get { return (Brush)GetValue(HintColorProperty); }
-            set { SetValue(HintColorProperty, value); }
+            get { return (Brush)GetValue(HintBrushProperty); }
+            set { SetValue(HintBrushProperty, value); }
         }
 
         public static readonly DependencyProperty HintTextProperty =
@@ -31,6 +31,15 @@ namespace Neq.Design.WPF.Controls
         {
             get { return (CornerRadius)GetValue(CornerRadiusProperty); }
             set { SetValue(CornerRadiusProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsDestructiveProperty =
+           DependencyProperty.Register("IsDestructive", typeof(bool), typeof(NeqTextBox), new PropertyMetadata() { DefaultValue = false });
+
+        public string IsDestructive
+        {
+            get { return (string)GetValue(IsDestructiveProperty); }
+            set { SetValue(IsDestructiveProperty, value); }
         }
     }
 }

@@ -6,6 +6,7 @@
     <Style x:Key="NeqComboBox" TargetType="{x:Type neq:NeqComboBox}">
         
         <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource NeqFocusVisual}"/>
         
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>

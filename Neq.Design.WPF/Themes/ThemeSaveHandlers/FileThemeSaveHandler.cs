@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,8 @@ namespace Neq.Design.WPF.Themes.ThemeSaveHandlers
 
         private List<ThemesSave> _saves = new List<ThemesSave>();
         public string FileName { get; set; }
+
+        public event EventHandler Saving;
 
         public FileThemeSaveHandler(string fileName)
         {
@@ -50,6 +53,7 @@ namespace Neq.Design.WPF.Themes.ThemeSaveHandlers
 
             lock (_locker)
             {
+                Saving?.Invoke(this, new EventArgs());
                 File.WriteAllText(FileName, serializeSB.ToString());
             }
         }

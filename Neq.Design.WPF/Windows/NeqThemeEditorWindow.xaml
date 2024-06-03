@@ -190,11 +190,11 @@
                          ItemsSource="{Binding ThemesCollectionView}">
 
                     <ListBox.Resources>
-                         <helpers:BindingProxy x:Key="BindingProxy" 
+                        <helpers:BindingProxy x:Key="BindingProxy" 
                                                Data="{Binding}" />
                     </ListBox.Resources>
-                    
-                    
+
+
 
                     <ListBox.ItemContainerStyle>
 
@@ -202,7 +202,7 @@
 
                             <Style.Resources>
                             </Style.Resources>
-                            
+
                             <Style.Setters>
 
                                 <Setter Property="ContextMenu">
@@ -285,7 +285,7 @@
                                 </Trigger>
 
                             </Style.Triggers>
-                            
+
                         </Style>
 
                     </ListBox.ItemContainerStyle>
@@ -304,9 +304,9 @@
 
                 </ListBox>
 
-                
-                
-                
+
+
+
 
             </Grid>
 
@@ -350,9 +350,9 @@
 
                     </StackPanel>
 
-                 
 
-                  
+
+
 
                     <ListBox x:Name="listResources"
                              Background="{DynamicResource BackgroundSecondary}"
@@ -461,6 +461,33 @@
 
                             </DataTemplate>
 
+                            <DataTemplate x:Key="ForDouble" 
+                                          DataType="{x:Type themes:ThemeResourceModel}">
+
+                                <Grid Height="60">
+
+                                    <TextBlock Foreground="{DynamicResource ForegroundPrimary}"
+                                               Text="{Binding ResourceName}"
+                                               Margin="10 0"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Left"/>
+
+                                    <neq:NeqSlider Width="200"
+                                                   Maximum="50"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Right"
+                                                   Margin="10 0"
+                                                   TickFrequency="1"
+                                                   IsSnapToTickEnabled="True"
+                                                   TickPlacement="TopLeft"
+                                                   Style="{StaticResource NeqAccentSlider}"
+                                                   Minimum="0"
+                                                   Value="{Binding Resource, Mode=TwoWay}"/>
+
+                                </Grid>
+
+                            </DataTemplate>
+
                             <DataTemplate x:Key="ForString"
                                           DataType="{x:Type themes:ThemeResourceModel}">
 
@@ -523,7 +550,8 @@
                             <local:ThemeResourceTemplateSelector Default="{StaticResource ForDefault}"
                                                                  ForSolidColorBrush="{StaticResource ForSolidColor}"
                                                                  ForCornerRadius="{StaticResource ForCornerRadius}"
-                                                                 ForString="{StaticResource ForString}"/>
+                                                                 ForString="{StaticResource ForString}"
+                                                                 ForDouble="{StaticResource ForDouble}"/>
                         </ListBox.ItemTemplateSelector>
 
                     </ListBox>

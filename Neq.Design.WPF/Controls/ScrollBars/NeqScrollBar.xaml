@@ -44,7 +44,7 @@
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="False"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         
-        <Setter Property="MinWidth" Value="{Binding Width, RelativeSource={RelativeSource Self}}"/>
+        <Setter Property="MinWidth" Value="{Binding ActualWidth, RelativeSource={RelativeSource Self}}"/>
         <Setter Property="Width" Value="4"/>
         
         <Setter Property="Background" Value="{DynamicResource ScrollBarBackground}"/>
@@ -86,7 +86,7 @@
                 <Setter Property="Width" Value="Auto"/>
                 <Setter Property="MinWidth" Value="0"/>
                 <Setter Property="Height" Value="4"/>
-                <Setter Property="MinHeight" Value="{Binding Height, RelativeSource={RelativeSource Self}}"/>
+                <Setter Property="MinHeight" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"/>
                 <Setter Property="Margin" Value="0 0 0 0" />
 
                 <Setter Property="Template">

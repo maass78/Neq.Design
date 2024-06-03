@@ -22,7 +22,7 @@
     <Style TargetType="{x:Type neq:NeqDoubleNumericTextBox}" BasedOn="{StaticResource NeqTextBox}"/>
 
     <Style TargetType="{x:Type neq:NeqToggleButton}" BasedOn="{StaticResource NeqToggleButton}"/>
-    
+
     <Style TargetType="{x:Type neq:NeqToolTip}" BasedOn="{StaticResource NeqToolTip}"/>
 
 </ResourceDictionary>

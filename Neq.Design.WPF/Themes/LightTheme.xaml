@@ -10,15 +10,15 @@
     <SolidColorBrush x:Key="ForegroundDisabled" Color="#9099AC"/>
 
     <SolidColorBrush x:Key="BackgroundPrimary" Color="#FFFFFF"/>
-    <SolidColorBrush x:Key="BackgroundSecondary" Color="#F6F8FA"/>
-    <SolidColorBrush x:Key="BackgroundStroke" Color="#EAEDF1"/>
+    <SolidColorBrush x:Key="BackgroundSecondary" Color="#F8FAFB"/>
+    <SolidColorBrush x:Key="BackgroundStroke" Color="#F6F7F9"/>
 
     <SolidColorBrush x:Key="Accent" Color="#93C5FD"/>
     <SolidColorBrush x:Key="AccentHover" Color="#60A5FA"/>
     <SolidColorBrush x:Key="AccentDisabled" Color="#BFDBFE"/>
 
     <SolidColorBrush x:Key="ControlBackground" Color="#F6F8FA"/>
-    <SolidColorBrush x:Key="ControlBackgroundHover" Color="#EAEDF1"/>
+    <SolidColorBrush x:Key="ControlBackgroundHover" Color="#E0E4EA"/>
     <SolidColorBrush x:Key="ControlBackgroundDisabled" Color="#F6F8FA"/>
 
     <SolidColorBrush x:Key="DestructiveBackground" Color="#F26955"/>
@@ -35,7 +35,9 @@
     <SolidColorBrush x:Key="TransparentBackgroundDark" Color="#CACACC"/>
     <SolidColorBrush x:Key="TransparentBackgroundLight" Color="#FDFDFD"/>
 
-    <CornerRadius x:Key="CornerRadius">6</CornerRadius>
+    <SolidColorBrush x:Key="FocusVisualBrush" Color="#FDFDFD"/>
 
+    <CornerRadius x:Key="CornerRadius">6</CornerRadius>
+    <system:Double x:Key="FontSize">16</system:Double>
 
 </ResourceDictionary>

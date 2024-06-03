@@ -35,6 +35,9 @@
     <SolidColorBrush x:Key="TransparentBackgroundDark" Color="#1B1B1B"/>
     <SolidColorBrush x:Key="TransparentBackgroundLight" Color="#393939"/>
 
+    <SolidColorBrush x:Key="FocusVisualBrush" Color="#393939"/>
+    
     <CornerRadius x:Key="CornerRadius">6</CornerRadius>
+    <system:Double x:Key="FontSize">16</system:Double>
 
 </ResourceDictionary>

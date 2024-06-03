@@ -165,6 +165,8 @@
         <Style.Setters>
 
             <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="FocusVisualStyle" Value="{DynamicResource NeqFocusVisual}"/>
+            
             <Setter Property="Height" Value="24"/>
             
             <Setter Property="Background" Value="{DynamicResource ControlBackground}"/>

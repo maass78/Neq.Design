@@ -52,12 +52,30 @@ namespace Neq.Design.WPF.Controls
         }
 
         public static readonly DependencyProperty PopupPaddingProperty =
-        DependencyProperty.Register("PopupPadding", typeof(Thickness), typeof(NeqMenuItem), new PropertyMetadata() { DefaultValue = new Thickness(0) });
+            DependencyProperty.Register("PopupPadding", typeof(Thickness), typeof(NeqMenuItem), new PropertyMetadata() { DefaultValue = new Thickness(0) });
 
         public Thickness PopupPadding
         {
             get { return (Thickness)GetValue(PopupPaddingProperty); }
             set { SetValue(PopupPaddingProperty, value); }
+        }
+
+        public static readonly DependencyProperty PopupBorderThiknessProperty =
+           DependencyProperty.Register("PopupBorderThikness", typeof(Thickness), typeof(NeqMenuItem), new PropertyMetadata() { DefaultValue = new Thickness(0) });
+
+        public Thickness PopupBorderThikness
+        {
+            get { return (Thickness)GetValue(PopupBorderThiknessProperty); }
+            set { SetValue(PopupBorderThiknessProperty, value); }
+        }
+
+        public static readonly DependencyProperty PopupBorderBrushProperty =
+            DependencyProperty.Register("PopupBorderBrush", typeof(Brush), typeof(NeqMenuItem), new PropertyMetadata());
+
+        public Brush PopupBorderBrush
+        {
+            get { return (Brush)GetValue(PopupBorderBrushProperty); }
+            set { SetValue(PopupBorderBrushProperty, value); }
         }
 
     }

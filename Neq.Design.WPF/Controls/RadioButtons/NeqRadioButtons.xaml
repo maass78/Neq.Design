@@ -8,10 +8,11 @@
     <Style x:Key="NeqBaseRadioButton" TargetType="{x:Type controls:NeqRadioButton}">
 
         <Style.Setters>
-           
-            <Setter Property="IconMargin" Value="0"/>
+            
             <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="FocusVisualStyle" Value="{DynamicResource NeqFocusVisual}"/>
 
+            <Setter Property="IconMargin" Value="0"/>
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="Padding" Value="10 8"/>
 

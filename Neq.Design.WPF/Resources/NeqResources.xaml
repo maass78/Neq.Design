@@ -26,6 +26,16 @@
         </DrawingImage.Drawing>
     </DrawingImage>
 
-    
+    <Style x:Key="NeqFocusVisual" TargetType="{x:Type Control}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle Margin="0" StrokeThickness="1" Stroke="{DynamicResource FocusVisualBrush}" StrokeDashArray="1 2"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
 
 </ResourceDictionary>

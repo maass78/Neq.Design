@@ -6,7 +6,7 @@ namespace Neq.Design.WPF.Helpers
     public class RelayCommand : ICommand
     {
         private Action<object> _execute;
-        private Func<object, bool> _canExecute;
+        private Predicate<object> _canExecute;
 
         public event EventHandler CanExecuteChanged
         {
@@ -14,7 +14,7 @@ namespace Neq.Design.WPF.Helpers
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
+        public RelayCommand(Action<object> execute, Predicate<object> canExecute = null)
         {
             _execute = execute;
             _canExecute = canExecute;

@@ -95,13 +95,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Neq.Design.WPF\Neq.Design.WPF.csproj">
-      <Project>{4f5b0736-6229-45a4-9fad-34f1d6bb82cb}</Project>
-      <Name>Neq.Design.WPF</Name>
-    </ProjectReference>
+    <Resource Include="steam.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="steam.png" />
+    <ProjectReference Include="..\Neq.Design.WPF\Neq.Design.WPF.csproj">
+      <Project>{26c0445d-57a5-4127-83bf-9e751b3590eb}</Project>
+      <Name>Neq.Design.WPF</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

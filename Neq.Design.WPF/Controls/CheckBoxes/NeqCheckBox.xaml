@@ -5,17 +5,20 @@
                     >
 
     <converters:BoolNullToVisibiltyConverter x:Key="boolNullToVisibiltyConverter"/>
+    <converters:SourceToImageConverter x:Key="sourceToImageConverter"/>
 
-   
 
     <Style x:Key="NeqCheckBox" TargetType="{x:Type neq:NeqCheckBox}">
-        
+
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource NeqFocusVisual}"/>
         <Setter Property="OverridesDefaultStyle" Value="True"/>
+        
         <Setter Property="Foreground" Value="{DynamicResource ForegroundPrimary}"/>
         <Setter Property="Background" Value="{DynamicResource ControlBackground}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource ControlBackgroundHover}"/>
         <Setter Property="CornerRadius" Value="{DynamicResource CornerRadius}"/>
         <Setter Property="CheckBrush" Value="{DynamicResource Accent}"/>
+        <Setter Property="BorderThickness" Value="2"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -30,7 +33,7 @@
                                         CornerRadius="{TemplateBinding CornerRadius}" 
                                         Background="{TemplateBinding Background}"
                                         BorderBrush="{TemplateBinding BorderBrush}"
-                                        BorderThickness="2">
+                                        BorderThickness="{TemplateBinding BorderThickness}">
 
                                 <Image Visibility="{TemplateBinding IsChecked, Converter={StaticResource boolNullToVisibiltyConverter}}"
                                        VerticalAlignment="Stretch"
@@ -44,7 +47,7 @@
                                                 <DrawingGroup ClipGeometry="M0,0 V20 H20 V0 H0 Z">
                                                     <GeometryDrawing Geometry="F1 M20,20z M0,0z M16.6666,5L7.49998,14.1667 3.33331,10">
                                                         <GeometryDrawing.Pen>
-                                                            <Pen Brush="{TemplateBinding CheckBrush}" Thickness="1.66667" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
+                                                            <Pen Brush="{Binding RelativeSource={RelativeSource AncestorType=neq:NeqCheckBox}, Path=CheckBrush}" Thickness="1.66667" StartLineCap="Round" EndLineCap="Round" LineJoin="Round" MiterLimit="1" />
                                                         </GeometryDrawing.Pen>
                                                     </GeometryDrawing>
                                                 </DrawingGroup>

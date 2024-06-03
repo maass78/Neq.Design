@@ -101,6 +101,8 @@
 
                     <Border Background="{TemplateBinding PopupBackgroundBrush}"
                             Padding="{TemplateBinding PopupPadding}"
+                            BorderBrush="{TemplateBinding PopupBorderBrush}"
+                            BorderThickness="{TemplateBinding PopupBorderThikness}"
                             CornerRadius="{TemplateBinding CornerRadius}">
 
                         <ScrollViewer HorizontalScrollBarVisibility="Disabled"
@@ -192,6 +194,8 @@
 
                     <Border Background="{TemplateBinding PopupBackgroundBrush}"
                             Padding="{TemplateBinding PopupPadding}"
+                            BorderBrush="{TemplateBinding PopupBorderBrush}"
+                            BorderThickness="{TemplateBinding PopupBorderThikness}"
                             CornerRadius="{TemplateBinding CornerRadius}">
 
                         <ScrollViewer HorizontalScrollBarVisibility="Disabled"
@@ -305,16 +309,22 @@
     
     <Style x:Key="NeqMenuItem" TargetType="{x:Type neq:NeqMenuItem}">
         <Style.Setters>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="FocusVisualStyle" Value="{DynamicResource NeqFocusVisual}"/>
+            
             <Setter Property="Background" Value="{DynamicResource BackgroundPrimary}"/>
             <Setter Property="Foreground" Value="{DynamicResource ForegroundPrimary}"/>
-            <Setter Property="PopupBackgroundBrush" Value="{DynamicResource BackgroundPrimary}"/>
             <Setter Property="InputGestureTextBrush" Value="{DynamicResource ForegroundSecondary}"/>
             <Setter Property="CornerRadius" Value="{DynamicResource CornerRadius}"/>
+            
+            <Setter Property="PopupBackgroundBrush" Value="{DynamicResource BackgroundPrimary}"/>
+            <Setter Property="PopupBorderBrush" Value="{DynamicResource BackgroundStroke}"/>
             <Setter Property="PopupPadding" Value="6"/>
+            <Setter Property="PopupBorderThikness" Value="2"/>
+
             <Setter Property="Padding" Value="10 7"/>
             <Setter Property="IconMargin" Value="0 0 10 0"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="Template" Value="{StaticResource NeqTopLevelHeaderTemplate}"/>
         </Style.Setters>
 
@@ -342,7 +352,7 @@
             </Trigger>
 
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource BackgroundStroke}"/>
+                <Setter Property="Background" Value="{DynamicResource ControlBackgroundHover}"/>
             </Trigger>
 
             <MultiTrigger>
@@ -386,6 +396,8 @@
 
                         <Border Background="{TemplateBinding Background}"
                                 Padding="{TemplateBinding Padding}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="{TemplateBinding CornerRadius}">
 
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled"
@@ -411,6 +423,8 @@
         <Style.Setters>
             <Setter Property="Background" Value="{DynamicResource BackgroundPrimary}"/>
             <Setter Property="CornerRadius" Value="{DynamicResource CornerRadius}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource BackgroundStroke}"/>
             <Setter Property="ContextMenuService.Placement" Value="Mouse"/>
             <Setter Property="HasDropShadow" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -422,6 +436,8 @@
 
                         <Border Background="{TemplateBinding Background}"
                                 Padding="{TemplateBinding Padding}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="{TemplateBinding CornerRadius}">
 
                             <ScrollViewer HorizontalScrollBarVisibility="Disabled"
