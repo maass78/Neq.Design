@@ -13,19 +13,21 @@
     <SolidColorBrush x:Key="BackgroundSecondary" Color="#F8FAFB"/>
     <SolidColorBrush x:Key="BackgroundStroke" Color="#F6F7F9"/>
 
-    <SolidColorBrush x:Key="Accent" Color="#93C5FD"/>
-    <SolidColorBrush x:Key="AccentHover" Color="#60A5FA"/>
-    <SolidColorBrush x:Key="AccentDisabled" Color="#BFDBFE"/>
+    <SolidColorBrush x:Key="Accent" Color="#03A9F4"/>
+    <SolidColorBrush x:Key="AccentForeground" Color="#F5F5F5"/>
+    <SolidColorBrush x:Key="AccentForegroundDisabled" Color="#B3E5FC"/>
+    <SolidColorBrush x:Key="AccentHover" Color="#4FC3F7"/>
+    <SolidColorBrush x:Key="AccentDisabled" Color="#90CAF9"/>
 
     <SolidColorBrush x:Key="ControlBackground" Color="#F6F8FA"/>
     <SolidColorBrush x:Key="ControlBackgroundHover" Color="#E0E4EA"/>
     <SolidColorBrush x:Key="ControlBackgroundDisabled" Color="#F6F8FA"/>
 
-    <SolidColorBrush x:Key="DestructiveBackground" Color="#F26955"/>
-    <SolidColorBrush x:Key="DestructiveForeground" Color="#3B2629"/>
-    <SolidColorBrush x:Key="DestructiveHover" Color="#E25945"/>
-    <SolidColorBrush x:Key="DestructiveBackgroundDisabled" Color="#F86E5B"/>
-    <SolidColorBrush x:Key="DestructiveForegroundDisabled" Color="#E25945"/>
+    <SolidColorBrush x:Key="DestructiveBackground" Color="#FFCDD2"/>
+    <SolidColorBrush x:Key="DestructiveForeground" Color="#F44336"/>
+    <SolidColorBrush x:Key="DestructiveHover" Color="#EF9A9A"/>
+    <SolidColorBrush x:Key="DestructiveBackgroundDisabled" Color="#FFEBEE"/>
+    <SolidColorBrush x:Key="DestructiveForegroundDisabled" Color="#EF9A9A"/>
 
     <SolidColorBrush x:Key="ScrollBarForeground" Color="#56556E"/>
     <SolidColorBrush x:Key="ScrollBarBackground" Color="#2456556E"/>

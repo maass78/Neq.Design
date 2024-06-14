@@ -1,8 +1,8 @@
-﻿using Neq.Design.WPF.Helpers.Types;
-using System;
+﻿using System;
 using System.Windows.Media;
+using Neq.Design.WPF.Colors.Types;
 
-namespace Neq.Design.WPF.Helpers
+namespace Neq.Design.WPF.Colors
 {
     public static class ColorConverter
     {
@@ -22,7 +22,7 @@ namespace Neq.Design.WPF.Helpers
                 throw new ArgumentException(nameof(a));
 
             double c = (1 - Math.Abs(2 * l - 1)) * s;
-            double x = c * (1 - Math.Abs((h / 60) % 2 - 1));
+            double x = c * (1 - Math.Abs(h / 60 % 2 - 1));
 
             double m = l - c / 2;
 
@@ -104,15 +104,15 @@ namespace Neq.Design.WPF.Helpers
                 hsl.S = 0;
                 return hsl;
             }
-            
+
             hsl.S = delta / (1 - Math.Abs(2 * hsl.L - 1));
 
             if (cMax == r1)
-                hsl.H = 60 * (((g1 - b1) / delta) % 6);
+                hsl.H = 60 * ((g1 - b1) / delta % 6);
             else if (cMax == g1)
-                hsl.H = 60 * (((b1 - r1) / delta) + 2);
+                hsl.H = 60 * ((b1 - r1) / delta + 2);
             else if (cMax == b1)
-                hsl.H = 60 * (((r1 - g1) / delta) + 4);
+                hsl.H = 60 * ((r1 - g1) / delta + 4);
 
             if (hsl.H < 0)
                 hsl.H = 360 + hsl.H;

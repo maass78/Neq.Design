@@ -1,4 +1,4 @@
-﻿namespace Neq.Design.WPF.Helpers.Types
+﻿namespace Neq.Design.WPF.Colors.Types
 {
     public struct HSLColor
     {

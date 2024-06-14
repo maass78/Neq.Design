@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:neq="clr-namespace:Neq.Design.WPF.Controls"
                     xmlns:converters="clr-namespace:Neq.Design.WPF.Converters">
-
+    
     <DrawingImage x:Key="NeqMenuRightIcon">
         <DrawingImage.Drawing>
             <DrawingGroup ClipGeometry="M0,0 V24 H24 V0 H0 Z">

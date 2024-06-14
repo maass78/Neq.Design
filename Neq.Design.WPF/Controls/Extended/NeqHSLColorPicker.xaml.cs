@@ -1,12 +1,12 @@
-﻿using Neq.Design.WPF.Helpers.Types;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Media;
-using ColorConverter = Neq.Design.WPF.Helpers.ColorConverter;
+using ColorConverter = Neq.Design.WPF.Colors.ColorConverter;
 using System.Windows;
 using System.Linq;
 using System.Globalization;
 using System;
 using System.Collections.Generic;
+using Neq.Design.WPF.Colors.Types;
 
 namespace Neq.Design.WPF.Controls.Extended
 {
@@ -27,24 +27,7 @@ namespace Neq.Design.WPF.Controls.Extended
         private int _round;
 
         public static readonly DependencyProperty SelectedColorProperty =
-        DependencyProperty.Register("SelectedColor", typeof(Color), typeof(NeqHSLColorPicker), new FrameworkPropertyMetadata(Colors.Red) { PropertyChangedCallback = OnSelectedColorPropertyChanged });
-
-       // private Color _selectedColor;
-
-        //public Color SelectedColor
-        //{
-        //    get { return _selectedColor; }
-        //    set
-        //    {
-        //        _selectedColor = value;
-
-        //        if (_frozen)
-        //            return;
-
-        //        _hsl = ColorConverter.RGBToHSL(value);
-        //        HandleColorChange(HandleFrom.None);
-        //    }
-        //}
+        DependencyProperty.Register("SelectedColor", typeof(Color), typeof(NeqHSLColorPicker), new FrameworkPropertyMetadata(System.Windows.Media.Colors.Red) { PropertyChangedCallback = OnSelectedColorPropertyChanged });
 
         public Color SelectedColor
         {
@@ -57,8 +40,6 @@ namespace Neq.Design.WPF.Controls.Extended
                 SetValue(SelectedColorProperty, value);
             }
         }
-
-      
 
         private static void OnSelectedColorPropertyChanged(DependencyObject source,
             DependencyPropertyChangedEventArgs e)

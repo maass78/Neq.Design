@@ -25,6 +25,7 @@
             <Setter Property="SelectionOpacity" Value="1"/>
             <Setter Property="CornerRadius" Value="{DynamicResource CornerRadius}"/>
             <Setter Property="BorderThickness" Value="2"/>
+            
             <Setter Property="Template">
 
                 <Setter.Value>
@@ -84,6 +85,17 @@
         </Style.Setters>
 
         <Style.Triggers>
+
+            <MultiTrigger>
+
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsFocused" Value="False"/>
+                    <Condition Property="IsDestructive" Value="True"/>
+                </MultiTrigger.Conditions>
+
+                <Setter Property="BorderBrush" Value="{DynamicResource DestructiveForeground}"/>
+
+            </MultiTrigger>
 
             <MultiTrigger>
 

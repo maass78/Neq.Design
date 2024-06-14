@@ -36,9 +36,9 @@ namespace Neq.Design.WPF.Controls
         public static readonly DependencyProperty IsDestructiveProperty =
            DependencyProperty.Register("IsDestructive", typeof(bool), typeof(NeqTextBox), new PropertyMetadata() { DefaultValue = false });
 
-        public string IsDestructive
+        public bool IsDestructive
         {
-            get { return (string)GetValue(IsDestructiveProperty); }
+            get { return (bool)GetValue(IsDestructiveProperty); }
             set { SetValue(IsDestructiveProperty, value); }
         }
     }

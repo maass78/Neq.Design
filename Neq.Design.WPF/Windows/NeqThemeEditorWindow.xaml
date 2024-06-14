@@ -16,7 +16,7 @@
         Height="450"
         Width="800"
         WindowStyle="SingleBorderWindow"
-        FontSize="16"
+        FontSize="{DynamicResource FontSize}"
         Background="{DynamicResource BackgroundPrimary}">
 
     <Window.Resources>
@@ -445,17 +445,26 @@
                                                VerticalAlignment="Center"
                                                HorizontalAlignment="Left"/>
 
-                                    <neq:NeqSlider Width="200"
-                                                   Maximum="50"
+                                    <StackPanel HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal">
+
+                                        <TextBlock Foreground="{DynamicResource ForegroundSecondary}"
+                                                   Text="{Binding Resource}"
                                                    VerticalAlignment="Center"
-                                                   HorizontalAlignment="Right"
-                                                   Margin="10 0"
-                                                   TickFrequency="1"
-                                                   IsSnapToTickEnabled="True"
-                                                   TickPlacement="TopLeft"
-                                                   Style="{StaticResource NeqAccentSlider}"
-                                                   Minimum="0"
-                                                   Value="{Binding Resource, Converter={StaticResource CornerRadiusToDouble}, Mode=TwoWay}"/>
+                                                   Margin="10 0"/>
+
+                                        <neq:NeqSlider Width="200"
+                                                       Maximum="50"
+                                                       VerticalAlignment="Center"
+                                                       Margin="6 0 10 0"
+                                                       TickFrequency="1"
+                                                       IsSnapToTickEnabled="True"
+                                                       TickPlacement="TopLeft"
+                                                       Style="{StaticResource NeqAccentSlider}"
+                                                       Minimum="0"
+                                                       Value="{Binding Resource, Converter={StaticResource CornerRadiusToDouble}, Mode=TwoWay}"/>
+                                    </StackPanel>
 
                                 </Grid>
 
@@ -472,17 +481,27 @@
                                                VerticalAlignment="Center"
                                                HorizontalAlignment="Left"/>
 
-                                    <neq:NeqSlider Width="200"
-                                                   Maximum="50"
+                                    <StackPanel HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal">
+
+                                        <TextBlock Foreground="{DynamicResource ForegroundSecondary}"
+                                                   Text="{Binding Resource}"
                                                    VerticalAlignment="Center"
-                                                   HorizontalAlignment="Right"
-                                                   Margin="10 0"
-                                                   TickFrequency="1"
-                                                   IsSnapToTickEnabled="True"
-                                                   TickPlacement="TopLeft"
-                                                   Style="{StaticResource NeqAccentSlider}"
-                                                   Minimum="0"
-                                                   Value="{Binding Resource, Mode=TwoWay}"/>
+                                                   Margin="10 0"/>
+
+                                        <neq:NeqSlider Width="200"
+                                                       Maximum="50"
+                                                       VerticalAlignment="Center"
+                                                       Margin="6 0 10 0"
+                                                       TickFrequency="1"
+                                                       IsSnapToTickEnabled="True"
+                                                       TickPlacement="TopLeft"
+                                                       Style="{StaticResource NeqAccentSlider}"
+                                                       Minimum="0"
+                                                       Value="{Binding Resource, Mode=TwoWay}"/>
+                                    </StackPanel>
+                                   
 
                                 </Grid>
 

@@ -14,6 +14,8 @@
     <SolidColorBrush x:Key="BackgroundStroke" Color="#22222C"/>
 
     <SolidColorBrush x:Key="Accent" Color="#456DFC"/>
+    <SolidColorBrush x:Key="AccentForeground" Color="#F5F5F5"/>
+    <SolidColorBrush x:Key="AccentForegroundDisabled" Color="#56565C"/>
     <SolidColorBrush x:Key="AccentHover" Color="#6486FF"/>
     <SolidColorBrush x:Key="AccentDisabled" Color="#27315B"/>
 

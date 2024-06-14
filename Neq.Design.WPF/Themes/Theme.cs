@@ -95,6 +95,25 @@ namespace Neq.Design.WPF.Themes
             set { _accent = value; Notify(); }
         }
 
+
+        private Brush _accentForeground;
+
+        [ThemeResource]
+        public Brush AccentForeground
+        {
+            get => _accentForeground;
+            set { _accentForeground = value; Notify(); }
+        }
+
+        private Brush _accentForegroundDisabled;
+
+        [ThemeResource]
+        public Brush AccentForegroundDisabled
+        {
+            get => _accentForegroundDisabled;
+            set { _accentForegroundDisabled = value; Notify(); }
+        }
+
         private Brush _accentHover;
 
         [ThemeResource]

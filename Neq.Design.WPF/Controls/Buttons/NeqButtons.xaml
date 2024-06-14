@@ -31,7 +31,7 @@
                                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
 
                                 <ContentPresenter VerticalAlignment="Center" 
-                                                  x:Name="imageContainer" 
+                                                  x:Name="imageContainer"
                                                   Content="{TemplateBinding Converter={StaticResource sourceToImageConverter}, Property=Icon}"
                                                   Margin="{TemplateBinding IconMargin}"/>
                            
@@ -52,7 +52,7 @@
 
     <Style x:Key="NeqAccentButton" TargetType="{x:Type neq:NeqButton}" BasedOn="{StaticResource NeqBaseButton}">
 
-        <Setter Property="Foreground" Value="{DynamicResource ForegroundPrimary}"/>
+        <Setter Property="Foreground" Value="{DynamicResource AccentForeground}"/>
         <Setter Property="Background" Value="{DynamicResource Accent}"/>
 
         <Style.Triggers>
@@ -63,7 +63,7 @@
 
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Background" Value="{DynamicResource AccentDisabled}"/>
-                <Setter Property="Foreground" Value="{DynamicResource ForegroundDisabled}"/>
+                <Setter Property="Foreground" Value="{DynamicResource AccentForegroundDisabled}"/>
             </Trigger>
 
         </Style.Triggers>

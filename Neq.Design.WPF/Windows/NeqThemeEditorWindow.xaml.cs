@@ -41,7 +41,7 @@ namespace Neq.Design.WPF.Windows
 
     public partial class NeqThemeEditorWindow : Window
     {
-        public NeqThemeEditorWindow(Themes.Themes themes)
+        public NeqThemeEditorWindow()
         {
             InitializeComponent();
 
@@ -49,17 +49,20 @@ namespace Neq.Design.WPF.Windows
             buttonMinimize.Click += (s, e) => WindowState = WindowState.Minimized;
             buttonMaximize.Click += (s, e) => WindowState = WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
 
-            DataContext = new ThemeEditorViewModel(themes);
-            
             double margin = SystemParameters.WindowResizeBorderThickness.Left + SystemParameters.WindowNonClientFrameThickness.Left;
 
             StateChanged += (s, e) =>
             {
                 if (WindowState == WindowState.Maximized)
                     gridMain.Margin = new Thickness(margin);
-                else 
+                else
                     gridMain.Margin = new Thickness(0);
             };
+        }
+
+        public NeqThemeEditorWindow(Themes.Themes themes) : this()
+        {
+            DataContext = new ThemeEditorViewModel(themes);
         }
     }
 }
